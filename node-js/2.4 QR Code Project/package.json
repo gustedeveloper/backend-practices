@@ -1,0 +1,15 @@
+{
+  "name": "qr-code-project",
+  "version": "1.0.0",
+  "description": "I'm creating a QR code, using NPM packages.",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Guste",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^9.2.13",
+    "qr-image": "^3.2.0"
+  }
+}
