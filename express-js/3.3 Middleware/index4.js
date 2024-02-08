@@ -21,7 +21,7 @@ app.post("/submit", (req, res) => {
 
   const bandName = generateBandName(street, pet);
 
-res.send(`<h1>Your band name is:</h1><h2>${bandName}</h2>`); //Las comillas deben ser comas, si no, no detecta el valor de la constante que hay dentro del h2
+  res.send(`<h1>Your band name is:</h1><h2>${bandName}</h2>`); //Las comillas deben ser comas, si no, no detecta el valor de la constante que hay dentro del h2
 });
 
 app.listen(port, () => {
