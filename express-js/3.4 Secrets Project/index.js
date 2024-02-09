@@ -16,9 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 
 function passwordVerification(req, res, next) {
     const password = req.body["password"];
-    if(password === "ILoveProgramming") {
-      authorisedUser = true;
-    }
+    authorisedUser = password === "ILoveProgramming";
     next();
   }
 
@@ -29,7 +27,7 @@ res.sendFile(__dirname + "/public/index.html");
 });
 
 app.post("/check", (req, res) => {
-  if (authorisedUser === true) {
+  if (authorisedUser) {
   res.sendFile(__dirname + "/public/secret.html");
 } else {
     res.redirect("/")}
