@@ -10,13 +10,15 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 const port = 3000;
-let password = "";
+let authorisedUser = false;
 
 app.use(express.urlencoded({ extended: true }));
 
 function passwordVerification(req, res, next) {
-    console.log(req.body);
-    password = req.body["password"];
+    const password = req.body["password"];
+    if(password === "ILoveProgramming") {
+      authorisedUser = true;
+    }
     next();
   }
 
@@ -27,7 +29,7 @@ res.sendFile(__dirname + "/public/index.html");
 });
 
 app.post("/check", (req, res) => {
-  if (password === "ILoveProgramming") {
+  if (authorisedUser === true) {
   res.sendFile(__dirname + "/public/secret.html");
 } else {
     res.redirect("/")}
